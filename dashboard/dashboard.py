@@ -16,13 +16,13 @@ except FileNotFoundError:
 
 # Display some sample data
 st.write("Contoh data dari 'day.csv':")
-st.write("Contoh data dari 'hour.csv':")
 st.write(day_df.sample(5))
+st.write("Contoh data dari 'hour.csv':")
 st.write(hour_df.sample(5))
 
 # Visualization: Total Daily Rentals vs Temperature
-st.write("### Total Penyewaan Harian vs Suhu")
-st.write("Insight: Ada korelasi positif antara suhu yang lebih hangat dan peningkatan penyewaan sepeda.")
+st.write("### Total Penyewaan Harian vs Temprature Suhu")
+st.write("Insight : Ada korelasi positif antara suhu yang lebih hangat dan peningkatan penyewaan sepeda.")
 plt.figure(figsize=(10, 6))
 sns.scatterplot(x=day_df['temp'], y=day_df['cnt'], hue=day_df['weathersit'], palette='coolwarm')
 plt.title('Total Penyewaan Harian vs Suhu')
@@ -33,7 +33,7 @@ st.pyplot(plt)
 
 # Visualization: Hourly Rental Trend Throughout the Day
 st.write("### Tren Penyewaan Sepeda per Jam")
-st.write("Insight: Penyewaan sepeda cenderung lebih tinggi pada pagi dan sore hari, sesuai dengan waktu perjalanan kerja.")
+st.write("Insight : Penyewaan sepeda cenderung lebih tinggi pada pagi dan sore hari, sesuai dengan waktu perjalanan jam kerja.")
 plt.figure(figsize=(10, 6))
 sns.lineplot(x=hour_df['hr'], y=hour_df['cnt'], ci=None)
 plt.title('Tren Penyewaan Sepeda per Jam')
@@ -57,7 +57,7 @@ st.pyplot(plt)
 
 # Penyewaan berdasarkan musim
 st.write("### Penyewaan Berdasarkan Musim")
-st.write("Insight: Penyewaan sepeda bervariasi tergantung musim, menunjukkan pengaruh cuaca pada penggunaan sepeda.")
+st.write("Insight : Penyewaan sepeda bervariasi tergantung musim, menunjukkan pengaruh cuaca pada penggunaan sepeda.")
 season_df = day_df.groupby('season').agg({'cnt': 'mean'}).reset_index()
 season_map = {1: 'Winter', 2: 'Spring', 3: 'Summer', 4: 'Fall'}
 season_df['season'] = season_df['season'].map(season_map)

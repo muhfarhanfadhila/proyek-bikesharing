@@ -1,8 +1,3 @@
-## Cara Menjalankan Dashboard
-```
-streamlit run dashboard.py
-```
-
 ## File Structures
 ```
 ├── Dashboard
@@ -12,7 +7,18 @@ streamlit run dashboard.py
    ├── hour.csv
 ├── notebook.ipynb
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── url.txt
+```
+
+## Cara Menjalankan Dashboard
+```
+streamlit run dashboard.py
+```
+
+## LINK URL STREAMLIT
+```
+https://proyek-bikesharing-muhfarhan.streamlit.app/
 ```
 
 THANK YOU
