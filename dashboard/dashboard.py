@@ -14,10 +14,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-day_df = pd.read_csv("sample_data/day.csv")
+day_df = pd.read_csv("data/day.csv")
 day_df.sample(15)
 
-hour_df = pd.read_csv("sample_data/hour.csv")
+hour_df = pd.read_csv("data/hour.csv")
 hour_df.sample(15)
 
 day_df.info()
@@ -79,10 +79,10 @@ plt.xticks(range(0, 24))
 plt.grid(True)
 plt.show()
 
-# Group by weekday and holiday to compare average rentals
+# Mengelompokkan berdasarkan hari kerja dan hari libur untuk membandingkan rata-rata penyewaan
 weekday_holiday_df = day_df.groupby(['weekday', 'holiday']).agg({'cnt': 'mean'}).reset_index()
 
-# Plotting the data
+# Plotting data
 plt.figure(figsize=(10, 6))
 sns.barplot(x='weekday', y='cnt', hue='holiday', data=weekday_holiday_df, palette='Set2')
 plt.title('Average Rentals by Weekday and Holiday Status')
@@ -92,14 +92,14 @@ plt.legend(title='Holiday', labels=['No', 'Yes'])
 plt.grid(True)
 plt.show()
 
-# Group by season and calculate the mean rental count
+# Mengelompokkan berdasarkan musim dan hitung jumlah sewa rata-rata
 season_df = day_df.groupby('season').agg({'cnt': 'mean'}).reset_index()
 
-# Mapping season numbers to names for better readability
+# Mapping nomor musim ke nama agar lebih mudah dibaca
 season_map = {1: 'Winter', 2: 'Spring', 3: 'Summer', 4: 'Fall'}
 season_df['season'] = season_df['season'].map(season_map)
 
-# Plotting the data
+# Plotting data
 plt.figure(figsize=(10, 6))
 sns.barplot(x='season', y='cnt', data=season_df, palette='viridis')
 plt.title('Average Rentals by Season')
