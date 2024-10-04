@@ -23,7 +23,6 @@ Data yang digunakan dalam proyek ini berasal dari sumber berikut:
 
 3. Aktifkan environment virtual :
     Untuk Windows (.\env\Scripts\activate)
-    -
     Untuk MacOS/Linux (source env/bin/activate)
 
 4. Install semua dependensi yang diperlukan dengan menjalankan perintah berikut:
